@@ -1,7 +1,12 @@
+import { Routes } from "react-router";
 import "./App.css";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Routes></Routes>
+    </>
+  );
 }
 
 export default App;
