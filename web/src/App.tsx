@@ -1,7 +1,5 @@
-import "./App.css";
+import Dashboard from "./layout/Dashboard";
 
-function App() {
-  return <></>;
+export default function App() {
+  return <Dashboard />;
 }
-
-export default App;
