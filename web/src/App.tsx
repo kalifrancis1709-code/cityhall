@@ -1,5 +1,10 @@
-import Dashboard from "./layout/Dashboard";
+import { Routes } from "react-router";
+import "./App.css";
 
 export default function App() {
-  return <Dashboard />;
+  return (
+    <>
+      <Routes></Routes>
+    </>
+  );
 }
