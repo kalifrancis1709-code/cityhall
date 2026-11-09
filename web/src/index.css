@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --color-surface: #ffffff;
+
+  --color-brand: #0d6a4e;
+  --color-card: #ddefe7;
+  --color-menu: #e9ede8;
+  --color-page: #f3f5f2;
+  --color-badge: #fbefd6;
+  --color-badge-text: #9a6200;
+  --color-rejected: #b42a1e;
+  --color-ink: #16201b;
+  --color-secondary: #56645d;
+  --color-border: #d5dcd5;
+  --color-phone: #25302b;
+}
+
+html,
+body {
+  @apply m-0 p-0 font-sans;
+}
