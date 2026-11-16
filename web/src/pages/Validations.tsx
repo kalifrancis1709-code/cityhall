@@ -68,12 +68,12 @@ const INITIAL_SUBMISSIONS: Submission[] = [
 ];
 
 const focusRing =
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4cc79a]";
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b52]";
 
 function Field({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid grid-cols-[7rem_1fr] items-baseline gap-3 border-b border-[#26332d] py-3.5 last:border-b-0 sm:grid-cols-[8rem_1fr] xl:px-3 xl:[&:nth-last-child(2)]:border-b-0">
-      <dt className="text-[#9fb0a7]">{label}</dt>
+    <div className="grid grid-cols-[7rem_1fr] items-baseline gap-3 border-b border-[#e4e7e5] py-3.5 last:border-b-0 sm:grid-cols-[8rem_1fr] xl:px-3 xl:[&:nth-last-child(2)]:border-b-0">
+      <dt className="text-[#5a675f]">{label}</dt>
       <dd className="font-semibold break-words">{value}</dd>
     </div>
   );
@@ -131,7 +131,7 @@ export default function Validations() {
     <>
       {/* Liste : plein écran sur mobile, colonne fixe dès lg */}
       <section
-        className={`w-full px-4 py-5 sm:px-7 lg:block lg:w-[340px] lg:shrink-0 lg:border-r lg:border-[#26332d] lg:py-8 xl:w-[390px] ${
+        className={`w-full px-4 py-5 sm:px-7 lg:block lg:w-[340px] lg:shrink-0 lg:border-r lg:border-[#e4e7e5] lg:py-8 xl:w-[390px] ${
           mobileView === "detail" ? "hidden" : "block"
         }`}
       >
@@ -140,7 +140,7 @@ export default function Validations() {
         </h2>
 
         {items.length === 0 ? (
-          <p className="text-[#9fb0a7]">
+          <p className="text-[#5a675f]">
             Aucune fiche en attente de validation.
           </p>
         ) : (
@@ -156,14 +156,14 @@ export default function Validations() {
                     className={`min-h-14 w-full rounded-xl border px-4 py-3.5 text-left transition-colors ${focusRing} ${
                       // la surbrillance n'a de sens que lorsque liste et détail sont visibles ensemble
                       active
-                        ? "border-[#26332d] bg-[#18231e] lg:border-[#3fb68a] lg:bg-[#143528]"
-                        : "border-[#26332d] bg-[#18231e] hover:border-[#35453d]"
+                        ? "border-[#e4e7e5] bg-[#ffffff] lg:border-[#3fb68a] lg:bg-[#e3f3e8]"
+                        : "border-[#e4e7e5] bg-[#ffffff] hover:border-[#b9c2bd]"
                     }`}
                   >
                     <span className="block text-[17px] font-bold">
                       {item.name}
                     </span>
-                    <span className="mt-1 block text-[15px] text-[#9fb0a7]">
+                    <span className="mt-1 block text-[15px] text-[#5a675f]">
                       {item.activity} · par {item.submittedBy} ·{" "}
                       {item.submittedAt}
                     </span>
@@ -186,7 +186,7 @@ export default function Validations() {
             <button
               type="button"
               onClick={() => setMobileView("list")}
-              className={`-ml-2 mb-3 flex min-h-11 items-center gap-1 rounded-lg px-2 font-semibold text-[#4cc79a] hover:bg-[#1f2d27] lg:hidden ${focusRing}`}
+              className={`-ml-2 mb-3 flex min-h-11 items-center gap-1 rounded-lg px-2 font-semibold text-[#0f6b52] hover:bg-[#f1f3f2] lg:hidden ${focusRing}`}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -207,7 +207,7 @@ export default function Validations() {
               <h2 className="text-2xl font-bold leading-tight sm:text-[28px]">
                 {selected.name}
               </h2>
-              <span className="shrink-0 rounded-full bg-[#4a3516] px-3 py-1 text-sm font-bold text-[#f0b04a]">
+              <span className="shrink-0 rounded-full bg-[#fbf3e2] px-3 py-1 text-sm font-bold text-[#8a5a16]">
                 À valider
               </span>
             </header>
@@ -224,7 +224,7 @@ export default function Validations() {
             {selected.duplicate && (
               <div
                 role="alert"
-                className="mt-5 rounded-xl bg-[#4a3516] px-4 py-3.5 text-[15px] leading-relaxed text-[#f0b04a] sm:px-5 sm:py-4 sm:text-base"
+                className="mt-5 rounded-xl bg-[#fbf3e2] px-4 py-3.5 text-[15px] leading-relaxed text-[#8a5a16] sm:px-5 sm:py-4 sm:text-base"
               >
                 Fiche proche existante : « {selected.duplicate.name} » (
                 {selected.duplicate.code}), {selected.duplicate.reason}.
@@ -234,7 +234,7 @@ export default function Validations() {
 
             <label
               htmlFor="reason"
-              className="mt-6 mb-2 block text-[15px] font-semibold text-[#9fb0a7]"
+              className="mt-6 mb-2 block text-[15px] font-semibold text-[#5a675f]"
             >
               Motif (obligatoire en cas de rejet)
             </label>
@@ -253,8 +253,8 @@ export default function Validations() {
               aria-invalid={!!error}
               aria-describedby={error ? "reason-error" : undefined}
               // text-base (16px) évite le zoom automatique sur iOS
-              className={`h-24 w-full resize-none rounded-lg border bg-transparent px-4 py-3 text-base text-[#e6efe9] placeholder:text-[#7d8d84] focus:outline-2 focus:outline-offset-0 focus:outline-[#4cc79a] sm:h-[72px] ${
-                error ? "border-[#f07a6e]" : "border-[#35453d]"
+              className={`h-24 w-full resize-none rounded-lg border bg-transparent px-4 py-3 text-base text-[#17231f] placeholder:text-[#8a958f] focus:outline-2 focus:outline-offset-0 focus:outline-[#0f6b52] sm:h-[72px] ${
+                error ? "border-[#f07a6e]" : "border-[#b9c2bd]"
               }`}
             />
             {error && (
@@ -267,27 +267,27 @@ export default function Validations() {
               <button
                 type="button"
                 onClick={handleValidate}
-                className={`min-h-12 w-full rounded-lg bg-[#4cc79a] px-5 py-3 text-base font-bold text-[#0f1a15] transition-colors hover:bg-[#5fd5aa] sm:w-auto ${focusRing}`}
+                className={`min-h-12 w-full rounded-lg bg-[#0f6b52] px-5 py-3 text-base font-bold text-[#ffffff] transition-colors hover:bg-[#0b5540] sm:w-auto ${focusRing}`}
               >
                 Valider la fiche
               </button>
               <button
                 type="button"
                 onClick={handleReject}
-                className="min-h-12 w-full rounded-lg border border-[#35453d] px-5 py-3 text-base font-bold text-[#f07a6e] transition-colors hover:bg-[#1f2d27] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f07a6e] sm:w-auto"
+                className="min-h-12 w-full rounded-lg border border-[#b9c2bd] px-5 py-3 text-base font-bold text-[#f07a6e] transition-colors hover:bg-[#f1f3f2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f07a6e] sm:w-auto"
               >
                 Rejeter
               </button>
             </div>
 
-            <p className="mt-5 text-[15px] leading-relaxed text-[#9fb0a7] sm:text-base">
+            <p className="mt-5 text-[15px] leading-relaxed text-[#5a675f] sm:text-base">
               À la validation, les taxes liées à l'activité «{" "}
               {selected.activity} » sont affectées automatiquement (API : étape
               6).
             </p>
           </>
         ) : (
-          <p className="text-[#9fb0a7]">
+          <p className="text-[#5a675f]">
             {items.length === 0
               ? "Toutes les fiches ont été traitées."
               : "Sélectionnez une fiche dans la liste pour la valider ou la rejeter."}

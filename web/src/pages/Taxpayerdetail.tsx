@@ -118,14 +118,14 @@ const STATUS_STYLES: Record<
   { label: string; className: string }
 > = {
   retard: { label: "En retard", className: "bg-[#4a1f1c] text-[#f07a6e]" },
-  soldee: { label: "Soldée", className: "bg-[#143528] text-[#4cc79a]" },
-  partielle: { label: "Partielle", className: "bg-[#4a3516] text-[#f0b04a]" },
+  soldee: { label: "Soldée", className: "bg-[#e3f3e8] text-[#0f6b52]" },
+  partielle: { label: "Partielle", className: "bg-[#fbf3e2] text-[#8a5a16]" },
 };
 
 const focusRing =
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4cc79a]";
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b52]";
 
-const outlineButton = `min-h-12 rounded-lg border border-[#35453d] px-5 text-base font-bold transition-colors hover:bg-[#1f2d27] ${focusRing}`;
+const outlineButton = `min-h-12 rounded-lg border border-[#b9c2bd] px-5 text-base font-bold transition-colors hover:bg-[#f1f3f2] ${focusRing}`;
 
 const formatNumber = (n: number) =>
   new Intl.NumberFormat("fr-FR").format(n).replace(/\u202f/g, "\u00a0");
@@ -134,7 +134,7 @@ function BackLink() {
   return (
     <Link
       to="/taxpayers"
-      className={`-ml-2 mb-3 flex min-h-11 w-fit items-center gap-1 rounded-lg px-2 font-semibold text-[#4cc79a] hover:bg-[#1f2d27] lg:hidden ${focusRing}`}
+      className={`-ml-2 mb-3 flex min-h-11 w-fit items-center gap-1 rounded-lg px-2 font-semibold text-[#0f6b52] hover:bg-[#f1f3f2] lg:hidden ${focusRing}`}
     >
       <svg
         viewBox="0 0 24 24"
@@ -174,12 +174,12 @@ export default function TaxpayerDetail() {
       <section className="min-w-0 flex-1 px-4 py-5 sm:px-7 lg:py-8">
         <BackLink />
         <h2 className="text-2xl font-bold">Contribuable introuvable</h2>
-        <p className="mt-2 text-[#9fb0a7]">
+        <p className="mt-2 text-[#5a675f]">
           Aucune fiche ne correspond au code {code}.
         </p>
         <Link
           to="/taxpayers"
-          className={`mt-5 hidden min-h-12 w-fit items-center rounded-lg border border-[#35453d] px-5 font-bold hover:bg-[#1f2d27] lg:inline-flex ${focusRing}`}
+          className={`mt-5 hidden min-h-12 w-fit items-center rounded-lg border border-[#b9c2bd] px-5 font-bold hover:bg-[#f1f3f2] lg:inline-flex ${focusRing}`}
         >
           Retour à la liste
         </Link>
@@ -189,7 +189,7 @@ export default function TaxpayerDetail() {
 
   const totalRemaining = taxpayer.receivables.reduce(
     (sum, r) => sum + (r.due - r.paid),
-    0
+    0,
   );
 
   return (
@@ -199,7 +199,7 @@ export default function TaxpayerDetail() {
       {/* En-tête */}
       <header className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
-          <p className="font-mono text-sm tracking-widest text-[#9fb0a7] sm:text-base">
+          <p className="font-mono text-sm tracking-widest text-[#5a675f] sm:text-base">
             {taxpayer.code}
           </p>
           <h2 className="mt-1 text-2xl font-bold leading-tight break-words sm:text-[28px]">
@@ -210,8 +210,8 @@ export default function TaxpayerDetail() {
           <span
             className={`shrink-0 rounded-full px-3 py-1 text-sm font-bold ${
               taxpayer.active
-                ? "bg-[#143528] text-[#4cc79a]"
-                : "bg-[#26302b] text-[#9fb0a7]"
+                ? "bg-[#e3f3e8] text-[#0f6b52]"
+                : "bg-[#eef0ef] text-[#5a675f]"
             }`}
           >
             {taxpayer.active ? "Actif" : "Inactif"}
@@ -228,15 +228,15 @@ export default function TaxpayerDetail() {
 
       <dl className="mt-4 flex flex-col gap-1.5 text-base sm:flex-row sm:flex-wrap sm:gap-x-8 sm:text-[17px]">
         <div className="flex flex-wrap gap-x-2">
-          <dt className="text-[#9fb0a7]">Activité</dt>
+          <dt className="text-[#5a675f]">Activité</dt>
           <dd>{taxpayer.activity}</dd>
         </div>
         <div className="flex flex-wrap gap-x-2">
-          <dt className="text-[#9fb0a7]">Zone</dt>
+          <dt className="text-[#5a675f]">Zone</dt>
           <dd>{taxpayer.zone}</dd>
         </div>
         <div className="flex flex-wrap gap-x-2">
-          <dt className="text-[#9fb0a7]">Tél.</dt>
+          <dt className="text-[#5a675f]">Tél.</dt>
           <dd>
             <a
               href={`tel:${taxpayer.phone.replace(/\s/g, "")}`}
@@ -263,7 +263,7 @@ export default function TaxpayerDetail() {
       <div role="table" aria-label="Taxes applicables">
         <div
           role="row"
-          className="hidden grid-cols-[2fr_1.2fr_1fr_1.2fr] gap-x-4 rounded-t-lg bg-[#18231e] px-3 py-3 text-[15px] font-semibold text-[#9fb0a7] md:grid"
+          className="hidden grid-cols-[2fr_1.2fr_1fr_1.2fr] gap-x-4 rounded-t-lg bg-[#ffffff] px-3 py-3 text-[15px] font-semibold text-[#5a675f] md:grid"
         >
           <span role="columnheader">Taxe</span>
           <span role="columnheader">Tarif actuel</span>
@@ -275,7 +275,7 @@ export default function TaxpayerDetail() {
           <div
             key={tax.name}
             role="row"
-            className="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1 border-b border-[#26332d] px-3 py-3.5 md:grid-cols-[2fr_1.2fr_1fr_1.2fr] md:gap-x-4 md:py-3"
+            className="grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1 border-b border-[#e4e7e5] px-3 py-3.5 md:grid-cols-[2fr_1.2fr_1fr_1.2fr] md:gap-x-4 md:py-3"
           >
             <span
               role="cell"
@@ -293,13 +293,13 @@ export default function TaxpayerDetail() {
               role="cell"
               className="col-start-2 row-start-2 justify-self-end md:col-auto md:row-auto md:justify-self-start"
             >
-              <span className="inline-block rounded-full bg-[#26302b] px-3 py-0.5 text-sm font-bold text-[#9fb0a7]">
+              <span className="inline-block rounded-full bg-[#eef0ef] px-3 py-0.5 text-sm font-bold text-[#5a675f]">
                 {tax.origin}
               </span>
             </span>
             <span
               role="cell"
-              className="col-start-1 row-start-2 text-[15px] text-[#9fb0a7] md:col-auto md:row-auto md:text-base md:text-[#e6efe9]"
+              className="col-start-1 row-start-2 text-[15px] text-[#5a675f] md:col-auto md:row-auto md:text-base md:text-[#17231f]"
             >
               <span className="md:hidden">Depuis </span>
               {tax.since}
@@ -314,7 +314,7 @@ export default function TaxpayerDetail() {
       <div role="table" aria-label="Créances">
         <div
           role="row"
-          className="hidden grid-cols-[1.4fr_1.4fr_1fr_1fr_1fr_1.1fr] gap-x-4 rounded-t-lg bg-[#18231e] px-3 py-3 text-[15px] font-semibold text-[#9fb0a7] md:grid"
+          className="hidden grid-cols-[1.4fr_1.4fr_1fr_1fr_1fr_1.1fr] gap-x-4 rounded-t-lg bg-[#ffffff] px-3 py-3 text-[15px] font-semibold text-[#5a675f] md:grid"
         >
           <span role="columnheader">Période</span>
           <span role="columnheader">Taxe</span>
@@ -336,7 +336,7 @@ export default function TaxpayerDetail() {
             <div
               key={`${r.period}-${r.tax}`}
               role="row"
-              className="grid grid-cols-3 items-center gap-x-3 gap-y-1 border-b border-[#26332d] px-3 py-3.5 md:grid-cols-[1.4fr_1.4fr_1fr_1fr_1fr_1.1fr] md:gap-x-4 md:py-3"
+              className="grid grid-cols-3 items-center gap-x-3 gap-y-1 border-b border-[#e4e7e5] px-3 py-3.5 md:grid-cols-[1.4fr_1.4fr_1fr_1fr_1fr_1.1fr] md:gap-x-4 md:py-3"
             >
               <span
                 role="cell"
@@ -346,7 +346,7 @@ export default function TaxpayerDetail() {
               </span>
               <span
                 role="cell"
-                className="col-span-3 col-start-1 row-start-2 text-[15px] text-[#9fb0a7] md:col-span-1 md:col-start-auto md:row-start-auto md:text-base md:text-[#e6efe9]"
+                className="col-span-3 col-start-1 row-start-2 text-[15px] text-[#5a675f] md:col-span-1 md:col-start-auto md:row-start-auto md:text-base md:text-[#17231f]"
               >
                 {r.tax}
               </span>
@@ -354,7 +354,7 @@ export default function TaxpayerDetail() {
                 role="cell"
                 className="col-start-1 row-start-3 mt-1 md:col-start-auto md:row-start-auto md:mt-0 md:text-right"
               >
-                <span className="block text-xs text-[#9fb0a7] md:hidden">
+                <span className="block text-xs text-[#5a675f] md:hidden">
                   Dû
                 </span>
                 {formatNumber(r.due)}
@@ -363,7 +363,7 @@ export default function TaxpayerDetail() {
                 role="cell"
                 className="col-start-2 row-start-3 mt-1 text-center md:col-start-auto md:row-start-auto md:mt-0 md:text-right"
               >
-                <span className="block text-xs text-[#9fb0a7] md:hidden">
+                <span className="block text-xs text-[#5a675f] md:hidden">
                   Payé
                 </span>
                 {formatNumber(r.paid)}
@@ -372,7 +372,7 @@ export default function TaxpayerDetail() {
                 role="cell"
                 className="col-start-3 row-start-3 mt-1 text-right font-semibold md:col-start-auto md:row-start-auto md:mt-0 md:font-normal"
               >
-                <span className="block text-xs font-normal text-[#9fb0a7] md:hidden">
+                <span className="block text-xs font-normal text-[#5a675f] md:hidden">
                   Reste
                 </span>
                 {formatNumber(r.due - r.paid)}
@@ -399,7 +399,7 @@ export default function TaxpayerDetail() {
         <button
           type="button"
           onClick={handlePayments}
-          className={`-ml-2 flex min-h-11 w-fit items-center gap-1.5 rounded-lg px-2 text-[#9fb0a7] hover:bg-[#1f2d27] hover:text-[#e6efe9] sm:ml-0 ${focusRing}`}
+          className={`-ml-2 flex min-h-11 w-fit items-center gap-1.5 rounded-lg px-2 text-[#5a675f] hover:bg-[#f1f3f2] hover:text-[#17231f] sm:ml-0 ${focusRing}`}
         >
           Historique des paiements
           <svg

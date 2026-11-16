@@ -12,24 +12,19 @@ const NAV = [
   { label: "Validations", to: "/validation", badge: true },
   { label: "Impayés", to: "/unpaid-taxes" },
   { label: "Tableau de bord", to: "/board" },
-  { label: "Taxes", to: "/taxes/1" },
-  { label: "Zones", to: "/zones/1" },
-  { label: "Utilisateur", to: "/user/1" },
-  { label: "Activité", to: "/activity" },
-  { label: "Déconnexion", to: "/logout" },
-  { label: "Connexion", to: "/login" },
-  { label: "Inscription", to: "/signup" },
-  { label: "Page non trouvée", to: "/404" },
+  { label: "Taxes", to: "/taxes" },
+  { label: "Quittance", to: "/quittance" },
+  { label: "Encaisser", to: "/encaisser" },
 ];
 
 const USER = { role: "Superviseur", name: "Esso Tchalla" };
 
 const focusRing =
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4cc79a]";
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b52]";
 
 function Badge({ count }: { count: number }) {
   return (
-    <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#4a3516] px-1.5 text-sm font-bold text-[#f0b04a]">
+    <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-[#fbf3e2] px-1.5 text-sm font-bold text-[#8a5a16]">
       {count}
     </span>
   );
@@ -50,9 +45,9 @@ export default function Dashboard() {
   }, [menuOpen]);
 
   return (
-    <div className="min-h-dvh bg-[#131c18] text-[#e6efe9] lg:flex">
+    <div className="min-h-dvh bg-[#f7f8f7] text-[#17231f] lg:flex">
       {/* Barre du haut : mobile et tablette uniquement */}
-      <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[#26332d] bg-[#18231e] px-4 py-2 lg:hidden">
+      <header className="sticky top-0 z-30 flex items-center justify-between gap-3 border-b border-[#e4e7e5] bg-[#ffffff] px-4 py-2 lg:hidden">
         <h1 className="truncate text-lg font-bold">Recettes municipales</h1>
         <button
           type="button"
@@ -60,7 +55,7 @@ export default function Dashboard() {
           aria-label="Ouvrir le menu"
           aria-expanded={menuOpen}
           aria-controls="sidebar"
-          className={`relative flex size-11 shrink-0 items-center justify-center rounded-lg hover:bg-[#1f2d27] ${focusRing}`}
+          className={`relative flex size-11 shrink-0 items-center justify-center rounded-lg hover:bg-[#f1f3f2] ${focusRing}`}
         >
           <svg
             viewBox="0 0 24 24"
@@ -75,7 +70,7 @@ export default function Dashboard() {
           </svg>
           {pendingCount > 0 && (
             <span
-              className="absolute top-2 right-2 size-2.5 rounded-full bg-[#f0b04a]"
+              className="absolute top-2 right-2 size-2.5 rounded-full bg-[#8a5a16]"
               aria-hidden="true"
             />
           )}
@@ -93,7 +88,7 @@ export default function Dashboard() {
 
       <aside
         id="sidebar"
-        className={`fixed inset-y-0 left-0 z-50 flex w-[280px] max-w-[85vw] flex-col overflow-y-auto border-r border-[#26332d] bg-[#18231e] px-4 py-5 transition-transform duration-200 motion-reduce:transition-none lg:sticky lg:top-0 lg:h-dvh lg:w-[262px] lg:shrink-0 lg:translate-x-0 lg:px-[18px] lg:py-7 ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[280px] max-w-[85vw] flex-col overflow-y-auto border-r border-[#e4e7e5] bg-[#ffffff] px-4 py-5 transition-transform duration-200 motion-reduce:transition-none lg:sticky lg:top-0 lg:h-dvh lg:w-[262px] lg:shrink-0 lg:translate-x-0 lg:px-[18px] lg:py-7 ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -105,7 +100,7 @@ export default function Dashboard() {
             type="button"
             onClick={() => setMenuOpen(false)}
             aria-label="Fermer le menu"
-            className={`flex size-11 shrink-0 items-center justify-center rounded-lg hover:bg-[#1f2d27] lg:hidden ${focusRing}`}
+            className={`flex size-11 shrink-0 items-center justify-center rounded-lg hover:bg-[#f1f3f2] lg:hidden ${focusRing}`}
           >
             <svg
               viewBox="0 0 24 24"
@@ -131,8 +126,8 @@ export default function Dashboard() {
               className={({ isActive }) =>
                 `flex min-h-12 items-center gap-2 rounded-lg px-3 py-2.5 text-[17px] font-medium transition-colors ${focusRing} ${
                   isActive
-                    ? "bg-[#4cc79a] font-semibold text-[#0f1a15]"
-                    : "text-[#e6efe9] hover:bg-[#1f2d27]"
+                    ? "bg-[#0f6b52] font-semibold text-[#ffffff]"
+                    : "text-[#17231f] hover:bg-[#f1f3f2]"
                 }`
               }
             >
@@ -144,7 +139,7 @@ export default function Dashboard() {
           ))}
         </nav>
 
-        <div className="mt-auto border-t border-[#26332d] px-3 pt-5 text-[15px] leading-snug text-[#9fb0a7] lg:mt-6">
+        <div className="mt-auto border-t border-[#e4e7e5] px-3 pt-5 text-[15px] leading-snug text-[#5a675f] lg:mt-6">
           <p>{USER.role}</p>
           <p>{USER.name}</p>
         </div>

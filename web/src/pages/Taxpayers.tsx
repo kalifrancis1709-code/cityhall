@@ -105,10 +105,10 @@ const ALL_TAXPAYERS: Taxpayer[] = [
 const PAGE_SIZE = 20;
 
 const focusRing =
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4cc79a]";
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f6b52]";
 
 const fieldClass =
-  "h-12 w-full rounded-lg border border-[#2b3a33] bg-[#0f1713] px-4 text-base text-[#e6efe9] placeholder:text-[#7d8d84] focus:outline-2 focus:outline-offset-0 focus:outline-[#4cc79a]";
+  "h-12 w-full rounded-lg border border-[#d7dbd9] bg-[#ffffff] px-4 text-base text-[#17231f] placeholder:text-[#8a958f] focus:outline-2 focus:outline-offset-0 focus:outline-[#0f6b52]";
 
 const formatNumber = (n: number) =>
   new Intl.NumberFormat("fr-FR").format(n).replace(/\u202f/g, "\u00a0");
@@ -160,7 +160,7 @@ function FilterSelect({
       </select>
       <svg
         viewBox="0 0 24 24"
-        className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-[#9fb0a7]"
+        className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-[#5a675f]"
         fill="currentColor"
         aria-hidden="true"
       >
@@ -226,13 +226,13 @@ export default function Taxpayers() {
   };
 
   return (
-    <section className="min-w-0 flex-1 px-4 py-5 sm:px-7 lg:py-8">
+    <section className="flex-1 px-4 py-5 sm:px-6 lg:px-8">
       <div className="mb-5 flex items-center justify-between gap-3">
         <h2 className="text-2xl font-bold sm:text-[28px]">Contribuables</h2>
         <button
           type="button"
           onClick={handleRecenser}
-          className={`min-h-12 shrink-0 rounded-lg bg-[#4cc79a] px-5 py-2.5 text-base font-bold text-[#131a16] transition-colors hover:bg-[#5fd5aa] ${focusRing}`}
+          className={`min-h-12 shrink-0 rounded-lg bg-[#0f6b52] px-5 py-2.5 text-base font-bold text-[#131a16] transition-colors hover:bg-[#0b5540] ${focusRing}`}
         >
           + Recenser
         </button>
@@ -288,7 +288,7 @@ export default function Taxpayers() {
       <div role="table" aria-label="Liste des contribuables">
         <div
           role="row"
-          className="hidden grid-cols-[1.25fr_1.4fr_1.5fr_1.1fr_5.5rem_6rem] gap-x-4 rounded-t-lg bg-[#18231e] px-3 py-3 text-[15px] font-semibold text-[#9fb0a7] md:grid"
+          className="hidden grid-cols-[1.25fr_1.4fr_1.5fr_1.1fr_5.5rem_6rem] gap-x-4 rounded-t-lg bg-[#ffffff] px-3 py-3 text-[15px] font-semibold text-[#5a675f] md:grid"
         >
           <span role="columnheader">Code</span>
           <span role="columnheader">Nom</span>
@@ -304,11 +304,11 @@ export default function Taxpayers() {
           <div
             key={t.code}
             role="row"
-            className="relative grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1 border-b border-[#26332d] px-3 py-3.5 hover:bg-[#18231e] md:grid-cols-[1.25fr_1.4fr_1.5fr_1.1fr_5.5rem_6rem] md:gap-x-4 md:py-3"
+            className="relative grid grid-cols-[1fr_auto] items-center gap-x-3 gap-y-1 border-b border-[#e4e7e5] px-3 py-3.5 hover:bg-[#ffffff] md:grid-cols-[1.25fr_1.4fr_1.5fr_1.1fr_5.5rem_6rem] md:gap-x-4 md:py-3"
           >
             <span
               role="cell"
-              className="col-start-1 row-start-2 text-sm text-[#9fb0a7] md:col-auto md:row-auto md:text-[15px] md:text-[#e6efe9]"
+              className="col-start-1 row-start-2 text-sm text-[#5a675f] md:col-auto md:row-auto md:text-[15px] md:text-[#17231f]"
             >
               {t.code}
             </span>
@@ -326,13 +326,13 @@ export default function Taxpayers() {
             </span>
             <span
               role="cell"
-              className="col-start-1 row-start-3 min-w-0 text-[15px] text-[#9fb0a7] md:col-auto md:row-auto md:text-[#e6efe9]"
+              className="col-start-1 row-start-3 min-w-0 text-[15px] text-[#5a675f] md:col-auto md:row-auto md:text-[#17231f]"
             >
               {labelOf(ACTIVITIES, t.activity)}
             </span>
             <span
               role="cell"
-              className="col-start-2 row-start-3 text-right text-[15px] text-[#9fb0a7] md:col-auto md:row-auto md:text-left md:text-[#e6efe9]"
+              className="col-start-2 row-start-3 text-right text-[15px] text-[#5a675f] md:col-auto md:row-auto md:text-left md:text-[#17231f]"
             >
               {labelOf(ZONES, t.zone)}
             </span>
@@ -343,8 +343,8 @@ export default function Taxpayers() {
               <span
                 className={`inline-block rounded-full px-3 py-0.5 text-sm font-bold ${
                   t.status === "actif"
-                    ? "bg-[#143528] text-[#4cc79a]"
-                    : "bg-[#26302b] text-[#9fb0a7]"
+                    ? "bg-[#e3f3e8] text-[#0f6b52]"
+                    : "bg-[#eef0ef] text-[#5a675f]"
                 }`}
               >
                 {labelOf(STATUSES, t.status)}
@@ -354,7 +354,7 @@ export default function Taxpayers() {
               role="cell"
               className="col-start-2 row-start-1 text-right font-semibold whitespace-nowrap md:col-auto md:row-auto md:font-normal"
             >
-              <span className="font-normal text-[#9fb0a7] md:hidden">
+              <span className="font-normal text-[#5a675f] md:hidden">
                 Reste :{" "}
               </span>
               {formatNumber(t.balance)}
@@ -366,14 +366,14 @@ export default function Taxpayers() {
 
       {rows.length === 0 && (
         <div className="py-10 text-center">
-          <p className="text-[#9fb0a7]">
+          <p className="text-[#5a675f]">
             Aucun contribuable ne correspond à ces filtres.
           </p>
           {hasFilters && (
             <button
               type="button"
               onClick={resetFilters}
-              className={`mt-4 min-h-12 rounded-lg border border-[#35453d] px-5 font-bold hover:bg-[#1f2d27] ${focusRing}`}
+              className={`mt-4 min-h-12 rounded-lg border border-[#b9c2bd] px-5 font-bold hover:bg-[#f1f3f2] ${focusRing}`}
             >
               Réinitialiser les filtres
             </button>
@@ -383,7 +383,7 @@ export default function Taxpayers() {
 
       {/* Pagination */}
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p aria-live="polite" className="text-[15px] text-[#9fb0a7]">
+        <p aria-live="polite" className="text-[15px] text-[#5a675f]">
           {total === 0
             ? "0 résultat"
             : `${formatNumber(start + 1)}–${formatNumber(start + rows.length)} sur ${formatNumber(total)}`}
@@ -393,7 +393,7 @@ export default function Taxpayers() {
             type="button"
             onClick={() => goToPage(page - 1)}
             disabled={page <= 1}
-            className={`min-h-12 rounded-lg border border-[#35453d] px-5 font-bold hover:bg-[#1f2d27] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent ${focusRing}`}
+            className={`min-h-12 rounded-lg border border-[#b9c2bd] px-5 font-bold hover:bg-[#f1f3f2] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent ${focusRing}`}
           >
             Précédent
           </button>
@@ -401,7 +401,7 @@ export default function Taxpayers() {
             type="button"
             onClick={() => goToPage(page + 1)}
             disabled={page >= totalPages}
-            className={`min-h-12 rounded-lg border border-[#35453d] px-5 font-bold hover:bg-[#1f2d27] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent ${focusRing}`}
+            className={`min-h-12 rounded-lg border border-[#b9c2bd] px-5 font-bold hover:bg-[#f1f3f2] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent ${focusRing}`}
           >
             Suivant
           </button>
