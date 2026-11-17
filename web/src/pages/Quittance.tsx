@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router";
+import { QRCodeSVG } from "qrcode.react";
 
 export default function Quittance() {
   const navigate = useNavigate();
@@ -37,9 +38,9 @@ export default function Quittance() {
             <li>Montant en lettres : [MONTANT_LETTRES]</li>
           </ul>
         </div>
-        {/* <div className="border-b-2 border-dotted border-gray-400 p-4">
-          <QRCode value="https://example.com" size={128} />
-        </div> */}
+        <div className="flex justify-center border-b-2 border-dotted border-gray-400 bg-white p-4">
+  <QRCodeSVG value="https://example.com" size={128} />
+</div>
 
         <div className="flex justify-center gap-2 p-4">
           <button

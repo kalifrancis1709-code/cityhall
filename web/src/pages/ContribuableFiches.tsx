@@ -153,7 +153,7 @@ function BackLink() {
   );
 }
 
-export default function TaxpayerDetail() {
+export default function ContribuableFiches() {
   const { code } = useParams();
   const taxpayer = code ? DETAILS[code] : undefined;
 

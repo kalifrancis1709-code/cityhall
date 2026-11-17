@@ -8,7 +8,7 @@ export default function Encaisser() {
             <p>Mensah Afi . CTB-2026-000418</p>
         </header>
         <div>
-            <h2>Créance à régler</h2>
+            <h2 className="p-4">Créance à régler</h2>
             <div className="border border-gray-300 p-4 m-2">
                 <h2>Droit de place</h2>
                 <p>Octobre 2026 en retard</p>

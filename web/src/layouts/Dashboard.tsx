@@ -8,10 +8,7 @@ export type DashboardContext = {
 
 const NAV = [
   { label: "Accueil", to: "/", end: true },
-  { label: "Contribuables", to: "/taxpayers" },
-  { label: "Validations", to: "/validation", badge: true },
-  { label: "Impayés", to: "/unpaid-taxes" },
-  { label: "Tableau de bord", to: "/board" },
+  { label: "Contribuables", to: "/contribuables" },
   { label: "Taxes", to: "/taxes" },
   { label: "Quittance", to: "/quittance" },
   { label: "Encaisser", to: "/encaisser" },
@@ -132,7 +129,7 @@ export default function Dashboard() {
               }
             >
               {item.label}
-              {item.badge && pendingCount > 0 ? (
+              {item && pendingCount > 0 ? (
                 <Badge count={pendingCount} />
               ) : null}
             </NavLink>
