@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import type { DashboardContext } from "../layouts/Dashboard";
+import { useOutletContext } from "react-router";
 
 type Duplicate = {
   name: string;
@@ -78,7 +77,7 @@ function Field({ label, value }: { label: string; value: string }) {
     </div>
   );
 }
- 
+
 export default function Validations() {
   const [items, setItems] = useState<Submission[]>(INITIAL_SUBMISSIONS);
   const [selectedId, setSelectedId] = useState<string>(
@@ -88,11 +87,6 @@ export default function Validations() {
   const [mobileView, setMobileView] = useState<"list" | "detail">("list");
   const [reason, setReason] = useState("");
   const [error, setError] = useState("");
-  const { setPendingCount } = useOutletContext<DashboardContext>();
-
-  useEffect(() => {
-    setPendingCount(items.length);
-  }, [items.length, setPendingCount]);
 
   const selected = items.find((i) => i.id === selectedId) ?? null;
 

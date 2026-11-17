@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 
 type TaxLine = {
   name: string;
@@ -189,7 +189,7 @@ export default function TaxpayerDetail() {
 
   const totalRemaining = taxpayer.receivables.reduce(
     (sum, r) => sum + (r.due - r.paid),
-    0
+    0,
   );
 
   return (
