@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router";
 
 export type DashboardContext = {
   /** Permet à une page de mettre à jour le badge « Validations » de la sidebar */
