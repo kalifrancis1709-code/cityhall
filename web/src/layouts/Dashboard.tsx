@@ -56,9 +56,9 @@ export default function Dashboard() {
             </li>
           </Link>
 
-          <Link to="/taxpayers" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+          <Link to="/encaisser" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
-              Taxpayers
+              Encaisser
             </li>
           </Link>
 
