@@ -56,7 +56,13 @@ export default function Dashboard() {
             </li>
           </Link>
 
-          <Link to="/taxepayerdetails" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+          <Link to="/taxpayers" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
+              Taxpayers
+            </li>
+          </Link>
+
+          <Link to="/contribuables/:slug" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
               Détails du contribuable
             </li>
