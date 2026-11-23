@@ -41,6 +41,33 @@ export default function Dashboard() {
               Contribuables
             </li>
           </Link>
+          <Link
+            to="/taxes"
+            className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
+          >
+            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
+              Taxes
+            </li>
+          </Link>
+
+          <Link to="/contribuables" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
+              Contribuables
+            </li>
+          </Link>
+
+          <Link to="/encaisser" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
+              Encaisser
+            </li>
+          </Link>
+
+          <Link to="/contribuables/:slug" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
+              Détails du contribuable
+            </li>
+          </Link>
+          
 
           <Link
             to="/validation"
