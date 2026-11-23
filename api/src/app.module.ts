@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -18,7 +20,10 @@ import { PostsModule } from './posts/posts.module';
       autoLoadEntities: true,
       synchronize: false,
     }),
-
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    AuthModule,
     UsersModule,
     PostsModule,
   ],
