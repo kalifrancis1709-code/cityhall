@@ -7,9 +7,11 @@ import {
   UpdateDateColumn,
   ManyToOne,
   Index,
+  ManyToOne,
 } from 'typeorm';
 
 import { User } from '../../users/entities/user.entity';
+import { Zone } from 'src/zone/entities/zone.entity';
 
 @Entity('sessions')
 @Index(['user', 'isActive'])
@@ -50,6 +52,9 @@ export class Session {
 
   @CreateDateColumn()
   createdAt!: Date;
+
+@ManyToOne(()=> Zone, (zone) => zone.posts)
+zone: Zone;
 
   @UpdateDateColumn()
   updatedAt!: Date;
