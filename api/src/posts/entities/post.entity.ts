@@ -8,6 +8,7 @@ ManyToOne,
 } from 'typeorm';
 
 import { User } from '../../users/entities/user.entity';
+import { Zone } from 'src/zone/entities/zone.entity';
 
 @Entity()
 export class Post {
@@ -32,5 +33,10 @@ updatedAt: Date;
     nullable: false,
     onDelete: 'CASCADE',
 })
+@ManyToOne(() => Zone, (zone) => zone.posts, {
+    nullable: false,
+    onDelete: 'CASCADE',
+})
 user: User;
+zone: Zone;
 }

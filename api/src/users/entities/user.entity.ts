@@ -1,4 +1,3 @@
-
 import {
   Column,
   Entity,
@@ -47,7 +46,7 @@ export class User {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  zone?: Zone | null;
+  zone!: Zone | null;
 
   // Relation avec Activity
   @OneToMany(() => Activity, (activity) => activity.user)

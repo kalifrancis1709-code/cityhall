@@ -9,6 +9,7 @@ import {
 
 import { Post } from '../../posts/entities/post.entity';
 import { User } from '../../users/entities/user.entity';
+import { Session } from '../../sessions/entities/session.entity';
 
 @Entity('zones')
 export class Zone {
@@ -42,6 +43,10 @@ export class Zone {
   // Une zone peut contenir plusieurs publications
   @OneToMany(() => Post, (post) => post.zone)
   posts!: Post[];
+
+  // Une zone peut contenir plusieurs sessions
+  @OneToMany(() => Session, (session) => session.zone)
+  sessions!: Session[];
 
   // Une zone peut contenir plusieurs utilisateurs
   @OneToMany(() => User, (user) => user.zone)

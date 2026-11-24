@@ -7,7 +7,6 @@ import {
   UpdateDateColumn,
   ManyToOne,
   Index,
-  ManyToOne,
 } from 'typeorm';
 
 import { User } from '../../users/entities/user.entity';
@@ -53,8 +52,12 @@ export class Session {
   @CreateDateColumn()
   createdAt!: Date;
 
-@ManyToOne(()=> Zone, (zone) => zone.posts)
-zone: Zone;
+
+  @ManyToOne(() => Zone, (zone) => zone.sessions, {
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  zone?: Zone | null;
 
   @UpdateDateColumn()
   updatedAt!: Date;
