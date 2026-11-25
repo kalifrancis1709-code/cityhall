@@ -28,19 +28,20 @@ export default function Dashboard() {
             to="/"
             className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
           >
-            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
-              Accueil
-            </li>
+            {/* <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
+              Tableau de bord
+            </li> */}
           </Link>
 
           <Link
-            to=""
+            to="/tableau-de-bord"
             className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
           >
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
-              Contribuables
+              Tableau de bord
             </li>
           </Link>
+
           <Link
             to="/taxes"
             className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
@@ -50,27 +51,35 @@ export default function Dashboard() {
             </li>
           </Link>
 
-          <Link to="/contribuables" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+          <Link
+            to="/contribuables"
+            className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
+          >
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
               Contribuables
             </li>
           </Link>
 
-          <Link to="/encaisser" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+          <Link
+            to="/encaisser"
+            className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
+          >
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
               Encaisser
             </li>
           </Link>
 
-          <Link to="/contribuables/:slug" className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none">
+          <Link
+            to="/contribuables/:slug"
+            className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
+          >
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
               Détails du contribuable
             </li>
           </Link>
-          
 
           <Link
-            to="/validation"
+            to="/validations"
             className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
           >
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
@@ -91,20 +100,11 @@ export default function Dashboard() {
           </Link>
 
           <Link
-            to="/Journal-d'audit"
+            to="/Journal-audit"
             className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
           >
             <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
               Journal d'audit
-            </li>
-          </Link>
-
-          <Link
-            to="/tableau-de-bord"
-            className="rounded-lg focus:bg-brand focus:text-surface focus:font-semibold focus:outline-none"
-          >
-            <li className="px-3 py-2 rounded-lg hover:bg-brand hover:text-surface hover:font-semibold">
-              Tableau de bord
             </li>
           </Link>
         </ul>

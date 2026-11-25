@@ -1,4 +1,4 @@
-export default function NouveauContribuable1() {
+export default function NouveauContribuable() {
   return (
     <div className="flex flex-col bg-surface  min-h-screen text-secondary items-center md:bg-page md:justify-center md:py-8">
       <div className="w-full bg-surface md:rounded-lg md:overflow-hidden md:w-[40rem]">
