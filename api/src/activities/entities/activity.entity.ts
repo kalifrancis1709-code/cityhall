@@ -34,17 +34,17 @@ export class Activity {
   })
   type!: ActivityType;
 
-  @Column({ length: 100, nullable: true })
-  module?: string | null;
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  module!: string | null;
 
   @Column({ type: 'jsonb', nullable: true })
-  details?: Record<string, any> | null;
+  details!: Record<string, any> | null;
 
   @ManyToOne(() => User, (user) => user.activities, {
     nullable: true,
     onDelete: 'SET NULL',
   })
-  user?: User | null;
+  user!: User | null;
 
   @CreateDateColumn()
   dateCreation!: Date;

@@ -1,4 +1,3 @@
-
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -23,7 +22,7 @@ export class Session {
   tokenHash!: string;
 
   // Adresse IP de connexion
-  @Column({ length: 45, nullable: true })
+  @Column({ type: 'varchar', length: 45, nullable: true })
   ipAddress?: string | null;
 
   // Informations sur le navigateur ou appareil
@@ -51,7 +50,6 @@ export class Session {
 
   @CreateDateColumn()
   createdAt!: Date;
-
 
   @ManyToOne(() => Zone, (zone) => zone.sessions, {
     nullable: true,

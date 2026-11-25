@@ -1,9 +1,9 @@
-import { Link, useSearchParams } from "react-router";
+import { Link, Links, useSearchParams } from "react-router";
 
 // v1.0
 type Status = "actif" | "inactif";
 
-type Taxpayer = {
+type contribuables = {
   code: string;
   name: string;
   phone: string;
@@ -39,7 +39,7 @@ const STATUSES: Option[] = [
 ];
 
 // TODO : remplacer par GET /api/taxpayers?zone=&activite=&statut=&q=&page=
-const ALL_TAXPAYERS: Taxpayer[] = [
+const ALL_CONTRIBUABLES: contribuables[] = [
   {
     code: "CTB-2026-000429",
     name: "Dossou Kossi",
@@ -196,7 +196,7 @@ export default function Contribuables() {
   // TODO : remplacer ce filtrage local par l'appel API (avec un délai sur la recherche)
   const query = normalize(q.trim());
   const queryDigits = q.replace(/\s/g, "");
-  const filtered = ALL_TAXPAYERS.filter(
+  const filtered = ALL_CONTRIBUABLES.filter(
     (t) =>
       (!zone || t.zone === zone) &&
       (!activity || t.activity === activity) &&
@@ -232,13 +232,11 @@ export default function Contribuables() {
     <section className="flex-1 px-4 py-5 sm:px-6 lg:px-8">
       <div className="mb-5 flex items-center justify-between gap-3">
         <h2 className="text-2xl font-bold sm:text-[28px]">Contribuables</h2>
-        <button
-          type="button"
-          onClick={handleRecenser}
+        <Link to="/nouveau-contribuable-1"
           className={`min-h-12 shrink-0 rounded-lg bg-[#0f6b52] px-5 py-2.5 text-base font-bold text-[#131a16] transition-colors hover:bg-[#0b5540] ${focusRing}`}
         >
           + Recenser
-        </button>
+        </Link>
       </div>
 
       {/* Filtres */}
@@ -321,7 +319,7 @@ export default function Contribuables() {
             >
               {/* le lien couvre toute la ligne grâce à after:absolute after:inset-0 */}
               <Link
-                to={`/t axpayers/${t.code}`}
+                to={`/contribuables/${t.code}`}
                 className={`rounded after:absolute after:inset-0 hover:underline ${focusRing}`}
               >
                 {t.name}
