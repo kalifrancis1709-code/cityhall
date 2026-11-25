@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router";
 
 type TaxLine = {
   name: string;
-  rate: number; // FCFA
+  rate: number; // en FCFA
   unit: "mois" | "an";
   origin: "auto" | "manuelle";
   since: string;

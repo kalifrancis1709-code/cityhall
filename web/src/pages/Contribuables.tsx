@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from "react-router";
 
+// v1.0
 type Status = "actif" | "inactif";
 
 type Taxpayer = {
@@ -11,6 +12,8 @@ type Taxpayer = {
   status: Status;
   balance: number; // reste à payer, en FCFA
 };
+
+// TODO : remplacer par GET /api/zones
 
 type Option = { value: string; label: string };
 
@@ -170,7 +173,7 @@ function FilterSelect({
   );
 }
 
-export default function Taxpayers() {
+export default function Contribuables() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const q = searchParams.get("q") ?? "";
@@ -318,7 +321,7 @@ export default function Taxpayers() {
             >
               {/* le lien couvre toute la ligne grâce à after:absolute after:inset-0 */}
               <Link
-                to={`/taxpayers/${t.code}`}
+                to={`/t axpayers/${t.code}`}
                 className={`rounded after:absolute after:inset-0 hover:underline ${focusRing}`}
               >
                 {t.name}

@@ -5,7 +5,7 @@ const NAV = [
   { label: "Inscription", to: "/signup" },
 ]
 
-export default function Home() {
+export default function Acceuil() {
   return (
     <div>
       <header>
